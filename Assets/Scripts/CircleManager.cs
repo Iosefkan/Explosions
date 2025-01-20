@@ -23,7 +23,6 @@ public class CircleManager : MonoBehaviour
         {
             var circle = (RectTransform)circlesContainer.GetChild(i);
             var size = force * 0.2f * ((i + 1f) / 5f);
-            Debug.Log(size);
             circle.sizeDelta = new Vector2(size, size);
         }
     }

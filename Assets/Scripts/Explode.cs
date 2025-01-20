@@ -52,9 +52,26 @@ public class Explode : MonoBehaviour
             var script = obj.GetComponent<Shatter>();
             if (script is not null)
             {
-                script.ShatterObject();
+                var pos = obj.gameObject.transform.position;
+                var distance = Vector3.Distance(transform.position, pos);
+                var category = GetShatterCategory(distance, radius);
+                script.ShatterObject(category);
             }
         }
+    }
+
+    int GetShatterCategory(float distance, float radius)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            var min = radius * (i / 5f);
+            var max = radius * ((i + 1) / 5f);
+            if (max > distance && min <= distance)
+            {
+                return 5 - (i + 1);
+            }
+        }
+        return 0;
     }
 
     void ExplodeObjects(float force, float radius)
