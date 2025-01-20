@@ -9204,6 +9204,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5786257596900879619, guid: 7f06e84467c5c344392a71ed52d22e4e, type: 3}
+      propertyPath: sidebar
+      value: 
+      objectReference: {fileID: 1529540105}
+    - target: {fileID: 5786257596900879619, guid: 7f06e84467c5c344392a71ed52d22e4e, type: 3}
       propertyPath: expTrans
       value: 
       objectReference: {fileID: 692231702}

@@ -6,6 +6,7 @@ public class Retry : MonoBehaviour
     public GameObject retry;
     public Slider forceSlider;
     public Transform expTrans;
+    public GameObject sidebar;
 
     void Update()
     {
@@ -19,8 +20,10 @@ public class Retry : MonoBehaviour
     {
         ResetObjects();
         var obj = Instantiate(retry);
-        obj.GetComponent<Explode>().forceSlider = forceSlider;
-        obj.GetComponent<Explode>().expTrans = expTrans;
+        var explode = obj.GetComponent<Explode>();
+        explode.forceSlider = forceSlider;
+        explode.expTrans = expTrans;
+        explode.sidebar = sidebar;
         Destroy(gameObject);
     }
 

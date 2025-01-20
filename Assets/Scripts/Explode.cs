@@ -8,6 +8,7 @@ public class Explode : MonoBehaviour
     public GameObject fractured;
     public Transform expTrans;
     public Slider forceSlider;
+    public GameObject sidebar;
 
     private void Start()
     {
@@ -24,14 +25,17 @@ public class Explode : MonoBehaviour
 
     void ExplodeThis()
     {
+        sidebar.SetActive(false);
         ShatterObjects(forceSlider.value * 0.1f);
         ExplodeObjects(forceSlider.value, forceSlider.value * 0.1f);
         var _fracInstance = Instantiate(fractured, transform.position, transform.rotation);
+        var retry = _fracInstance.GetComponent<Retry>();
+        retry.forceSlider = forceSlider;
+        retry.expTrans = expTrans;
+        retry.sidebar = sidebar;
 
         expTrans.gameObject.SetActive(true);
 
-        _fracInstance.GetComponent<Retry>().forceSlider = forceSlider;
-        _fracInstance.GetComponent<Retry>().expTrans = expTrans;
         foreach (Rigidbody body in _fracInstance.GetComponentsInChildren<Rigidbody>())
         {
             Vector3 force = (body.transform.position - transform.position).normalized * forceSlider.value;
