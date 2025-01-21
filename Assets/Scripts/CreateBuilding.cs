@@ -20,11 +20,12 @@ public class CreateBuilding : MonoBehaviour
 
     private void Create()
     {
-        int flag = Random.value > 0.5 ? 1 : -1;
+        int flagx = Random.value > 0.5 ? 1 : -1;
+        int flagz = Random.value > 0.5 ? 1 : -1;
         var building = GetComponent<GetBuildingType>().GetBuilding();
         building.AddComponent<ActiveOnClick>();
         building.GetComponent<SidebarRef>().sidebar = sidebar;
-        var obj = Instantiate(building, new Vector3((Random.value + 0.01f) * flag * 100f, 0, (Random.value + 0.01f) * -flag * 100f), Quaternion.Euler(0, Random.value * 360, 0));
+        var obj = Instantiate(building, new Vector3((Random.value + 0.01f) * flagx * 50f, 0, (Random.value + 0.01f) * flagz * 50f), Quaternion.Euler(0, Random.value * 360, 0));
         sidebar.SetActive(true);
         sidebar.GetComponent<SetSidebars>().Set(obj);
     }

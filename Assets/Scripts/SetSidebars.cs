@@ -10,8 +10,8 @@ public class SetSidebars : MonoBehaviour
     public void Set(GameObject obj)
     {
         GetComponent<ChangePosition>().obj = obj;
-        sliderX.value = obj.transform.position.x;
-        sliderY.value = obj.transform.position.z;
+        sliderX.value = obj.transform.position.x / Consts.MetersMultiplier;
+        sliderY.value = obj.transform.position.z / Consts.MetersMultiplier;
         angle.value = obj.transform.localEulerAngles.y;
     }
 }

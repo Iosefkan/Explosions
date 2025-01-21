@@ -31,15 +31,17 @@ public class ChangePosition : MonoBehaviour
         obj.transform.eulerAngles = new(obj.transform.localEulerAngles.x, angle, obj.transform.localEulerAngles.z);
     }
 
-    private void SetX(float val)
+    private void SetX(float x)
     {
+        var val = x * Consts.MetersMultiplier;
         if (obj is null) return;
         var y = DetectY();
         obj.transform.position = new Vector3(val, y, obj.transform.position.z);
     }
     
-    private void SetZ(float val)
+    private void SetZ(float z)
     {
+        var val = z * Consts.MetersMultiplier;
         if (obj is null) return;
         var y = DetectY();
         obj.transform.position = new Vector3(obj.transform.position.x, y, val);
