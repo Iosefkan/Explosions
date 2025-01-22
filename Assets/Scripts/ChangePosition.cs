@@ -56,6 +56,7 @@ public class ChangePosition : MonoBehaviour
         }
         var colsList = cols.ToList();
         colsList.Remove(colsList.FirstOrDefault(x => x.transform == obj.transform));
+        if (colsList.Count == 0) return obj.transform.position.y;
         return colsList.Max(col => col.point.y);
     }
 
