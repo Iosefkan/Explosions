@@ -25,7 +25,7 @@ public class CreateBuilding : MonoBehaviour
         var building = GetComponent<GetBuildingType>().GetBuilding();
         building.AddComponent<ActiveOnClick>();
         building.GetComponent<SidebarRef>().sidebar = sidebar;
-        var obj = Instantiate(building, new Vector3((Random.value + 0.01f) * flagx * 50f, 0, (Random.value + 0.01f) * flagz * 50f), Quaternion.Euler(0, Random.value * 360, 0));
+        var obj = Instantiate(building, new Vector3((Random.value + 0.01f) * flagx * 250f, 0, (Random.value + 0.01f) * flagz * 250f), Quaternion.Euler(0, Random.value * 360, 0));
         sidebar.SetActive(true);
         sidebar.GetComponent<SetSidebars>().Set(obj);
     }
